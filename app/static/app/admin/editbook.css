@@ -1,0 +1,14 @@
+main{
+    margin-top: 70px !important;
+    margin-bottom: 70px !important;
+}
+
+#front-cover-img, #back-cover-img{
+    width: 100%;
+}
+
+button[type="submit"]{
+    position: fixed;
+    bottom: 20px;
+    width: 70vw !important;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'app/admin/dashboard.css' %}">
+    <script src="{% static 'app/admin/dashboard.js' %}"></script>
+    <script>
+        {% for book in books %}
+            addBook('{{ book.title }}', '{{ book.cover_front }}', '{{ book.summary }}', '{{ book.id}}');
+        {% endfor %}
+    </script>
+</head>
+<body>
+    <header class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper black">
+                <ul class="left hide-on-med-and-down">
+                    <li><a href="/"><i class="material-icons">arrow_back</i></a></li>
+                </ul>
+                <a class="brand-logo left">Dashboard</a>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="row"></div>
+    </main>
+    <footer>
+        <a href="/admin_dashboard/new_book" id="submit-book" class="btn waves-effect waves-lighten black">Enter New Book</a>
+    </footer>
+</body>
+</html>

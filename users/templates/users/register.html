@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="{% static 'app/style.css' %}">
+    <link rel="stylesheet" href="{% static 'users/register.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper black">
+            <a href="/" class="brand-logo left"><i class="material-icons">arrow_back</i></a>
+            <a class="brand-logo center"><span class="logo-thin">epic</span><span class="logo-bold">reads</span></a>
+        </div>
+    </nav>
+    <form method="POST">
+        <h2>Register</h2>
+        {% csrf_token %}
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" name="username" id="id_username" required>
+                <label for="id_username">Username</label>
+            </div>            
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="email" name="email" id="id_email" required>
+                <label for="id_email">Email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="password" name="password1" id="id_password1" required>
+                <label for="id_password1">Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="password" name="password2" id="id_password2" required>
+                <label for="id_password2">Confirm Password</label>
+            </div>
+        </div>
+        <div class="row"><button class="btn waves-effect waves-lighten col s12 black">Sign Up</button></div>
+    </form>
+</body>
+</html>

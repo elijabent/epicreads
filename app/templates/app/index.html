@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EpicReads</title>
+    <link rel="stylesheet" href="{% static 'app/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper black">
+            <a class="brand-logo"><span class="logo-thin">epic</span><span class="logo-bold">reads</span></a>
+            <ul class="right">
+                {% if request.user.is_authenticated %}
+                <li class="navbar-link"><a href="/users/logout">Log Out</a></li>
+                {% else %}
+                <li class="navbar-link"><a href="/users/register">Sign Up</a></li>
+                <li class="navbar-link"><a href="/users/login">Log In</a></li>
+                {% endif %}
+                <li class="navbar-link"><a href="/catalog">Catalog</a></li>
+                {% if request.user.is_staff %}
+                <li class="navbar-link"><a href="/admin_dashboard">Dashboard</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>

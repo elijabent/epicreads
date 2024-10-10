@@ -1,0 +1,13 @@
+.brand-logo{
+    font-size: 40px !important;
+}
+
+
+form{
+    width: 50%;
+    margin-left: 25%;
+}
+
+form>h2{
+    text-align: center;
+}

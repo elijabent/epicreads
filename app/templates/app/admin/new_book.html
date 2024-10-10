@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Book</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'app/admin/new_book.css' %}">
+    <script defer src="{% static 'app/admin/new_book.js' %}"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper black">
+            <ul class="left">
+                <li><a href="/admin_dashboard/"><i class="material-icons"> arrow_back</i></a></li>
+            </ul>
+            <a class="brand-logo center">New Book</a>
+        </div>
+    </nav>
+    <main class="container">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="title" id="title-id" type="text" required>
+                    <label for="title-id">Title of Book</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input required name="author-first" id="author-first-id" type="text" required>
+                    <label for="author-first-id" type="text" required>Author First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input required name="author-last" id="author-last-id" type="text" required>
+                    <label for="author-last-id" type="text" required>Author Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s8">
+                    <textarea required name="summary" id="summary-id" class="materialize-textarea"></textarea>
+                    <label for="summary-id">Summary of Book</label>
+                </div>
+                <div class="input-field col s4">
+                    <input step="0.01" required name="price" type="number" id="price-id">
+                    <label for="price-id">Price of Book</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field file-field col s4">
+                    <div class="btn black">
+                        <span>Front Cover</span>
+                        <input required name="front-cover" type="file" id="cover_page_id" >
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input type="text" placeholder="Upload the Front Cover of the Book" class="file-path validate">
+                    </div>
+                </div>
+                <div class="input-field file-field col s4">
+                    <div class="btn black">
+                        <span>Back Cover</span>
+                        <input required name="back-cover" type="file" id="back_page_id" >
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input type="text" placeholder="Upload the Back Cover of the Book" class="file-path validate">
+                    </div>
+                </div>
+                <div class="input-field col s4">
+                    <input required name="published" type="date" id="published-date-id">
+                    <label for="published-date-id">Date Published</label>
+                </div>
+            </div>
+            <div class="row"></div>
+            <div class="row">
+                <div class="col s3"></div>
+                <button class="btn waves-effect waves-lighten black col s6" type="submit">
+                    <i class="material-icons left">add</i>
+                    Create New Book
+                    <i class="material-icons right">add</i>
+                </button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
+<!--
+Book Form Fields:
+    title
+    author (first and last -> author in views)
+    summary
+    price
+    published date
+-->
